@@ -18,6 +18,7 @@ jobs:
       - name: Push to receiver repo
         run: |
           git config --global user.name 'push repo'
+          git config --global user.email 'not@important.com'
           touch test.txt
           git add test.txt
           git commit -m 'test'
