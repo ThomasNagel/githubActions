@@ -18,7 +18,7 @@ jobs:
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
-          git remote set-url origin ThomasNagel/PushReceiver
+          git remote set-url origin git@github.com:ThomasNagel/PushReceiver.git
       - name: testing
         run: git status
       - name: pull    
