@@ -13,13 +13,12 @@ jobs:
         with:
           repository: ThomasNagel/PushReceiver
           token: ${{ secrets.PUSHRECEIVER_TOKEN }}
-          path: pushreceiver
 
       - name: config git settings
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
-          git remote set-url origin pushreceiver
+          git remote set-url origin ThomasNagel/PushReceiver
       - name: testing
         run: git status
       - name: pull    
