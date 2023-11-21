@@ -13,7 +13,7 @@ jobs:
         with:
           repository: ThomasNagel/PushReceiver
           token: ${{ secrets.PUSHRECEIVER_TOKEN }}
-          path: PushReceiver
+          ref: 'main'
 
       - name: Push to receiver repo
         run: |
@@ -22,4 +22,5 @@ jobs:
           touch test.txt
           git add test.txt
           git commit -m 'test'
-      - run: git push ThomasNagel/PushReceiver main
+          git remote set-url origin git@github.com:ThomasNagel/PushReceiver.git
+      - run: git push origin main
