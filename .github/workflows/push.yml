@@ -11,9 +11,8 @@ jobs:
       - name: Checkout receiver repo
         uses: actions/checkout@v4
         with:
-          repository: ThomasNagel/PushReceiver
+          repository: PushReceiver
           token: ${{ secrets.PUSHRECEIVER_TOKEN }}
-          ref: 'main'
 
       - name: Push to receiver repo
         run: echo test
