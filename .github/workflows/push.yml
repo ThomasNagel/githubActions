@@ -11,7 +11,7 @@ jobs:
       - name: Checkout receiver repo
         uses: actions/checkout@v4
         with:
-          repository: PushReceiver
+          repository: ThomasNagel/PushReceiver
           token: ${{ secrets.PUSHRECEIVER_TOKEN }}
 
       - name: Push to receiver repo
