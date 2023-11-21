@@ -19,11 +19,13 @@ jobs:
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
-          touch test.txt
-          git add test.txt
-          git commit -m 'test'
           git remote set-url origin pushreceiver
       - name: pull    
         run: git pull
+      - name: create files to be pushed
+        run: |
+          touch test.txt
+          git add test.txt
+          git commit -m 'test'
       - name: push
         run: git push origin main
