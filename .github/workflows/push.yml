@@ -5,9 +5,6 @@ jobs:
   process-pushed-file:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout this repo
-        uses: actions/checkout@v4
-      
       - name: Checkout receiver repo
         uses: actions/checkout@v4
         with:
@@ -18,9 +15,10 @@ jobs:
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
-          git remote set-url origin git@github.com:ThomasNagel/PushReceiver.git
       - name: testing
-        run: git status
+        run: |
+          git status
+          git remote -v
       - name: pull    
         run: git pull
       - name: create files to be pushed
