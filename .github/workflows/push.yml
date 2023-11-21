@@ -24,4 +24,5 @@ jobs:
           git add test.txt
           git commit -m 'test'
           git remote set-url origin pushreceiver
+          git pull
       - run: git push origin main
