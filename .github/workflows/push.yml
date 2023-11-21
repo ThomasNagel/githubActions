@@ -13,7 +13,7 @@ jobs:
         with:
           repository: ThomasNagel/PushReceiver
           token: ${{ secrets.PUSHRECEIVER_TOKEN }}
-          path: PushReceiver/
+          ref: 'main'
 
       - name: Push to receiver repo
         run: echo test
