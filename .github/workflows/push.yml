@@ -16,4 +16,9 @@ jobs:
           path: PushReceiver
 
       - name: Push to receiver repo
-        run: echo test
+        run: |
+          git config --global user.name 'push repo'
+          touch test.txt
+          git add test.txt
+          git commit -m 'test'
+          git push
