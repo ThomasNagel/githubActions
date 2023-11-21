@@ -22,4 +22,4 @@ jobs:
           touch test.txt
           git add test.txt
           git commit -m 'test'
-          git push ThomasNagel/PushReceiver main
+      - run: git push ThomasNagel/PushReceiver main
