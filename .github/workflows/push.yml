@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
-        uses: actions/checkout@4
+        uses: actions/checkout@3
       
       - name: Checkout receiver repo
-        uses: actions/checkout@4
+        uses: actions/checkout@3
         with:
           repository: ThomasNagel/PushReceiver
           token: ${{ secrets.PUSHRECEIVER_TOKEN }}
