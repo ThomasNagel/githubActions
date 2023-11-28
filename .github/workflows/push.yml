@@ -1,8 +1,20 @@
 name: Push test
 run-name: ${{ github.actor }} is testing out the push test
-on: [push]
+on:
+  push:
+    paths:
+      - '**.yml'
 jobs:
-  process-pushed-file:
+  process-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+      
+      - name: Build Database
+        run: bash createDB.sh
+
+  push-to-remote:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout receiver repo
@@ -15,16 +27,7 @@ jobs:
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
-      - name: testing
-        run: |
-          git status
-          git remote -v
       - name: pull    
         run: git pull
-      - name: create files to be pushed
-        run: |
-          touch test.txt
-          git add test.txt
-          git commit -m 'test'
       - name: push
         run: git push origin main
