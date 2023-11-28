@@ -7,5 +7,5 @@ for file in yml/*.yml; do
     ((id++))
     dbContent="$dbContent$nl$newContent"
 done
-echo "$dbContent"
-#echo "$dbContent" | yaml-to-sqlite metadata.db metadata /dev/stdin --pk id
+
+echo "$dbContent" | yaml-to-sqlite metadata.db metadata /dev/stdin --pk id
