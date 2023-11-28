@@ -5,7 +5,7 @@ on:
     paths:
       - '**.yml'
 jobs:
-  build-database:
+  build-db-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
@@ -20,14 +20,8 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: create Database
-        run: bash createDB.sh
-      
-      - name: test
-        run: cat metadata.db
+        run: bash createDB.sh metadata.db
 
-  push-to-remote:
-    runs-on: ubuntu-latest
-    steps:
       - name: Checkout receiver repo
         uses: actions/checkout@v4
         with:
@@ -38,7 +32,14 @@ jobs:
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
+
       - name: pull    
         run: git pull
+
+      - name:
+        run: |
+          git add metadata.db
+          git commit -m 'DATABASE'
+
       - name: push
         run: git push origin main

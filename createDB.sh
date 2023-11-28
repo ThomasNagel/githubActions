@@ -1,3 +1,4 @@
+dbName=$1
 id=0
 dbContent=""
 nl=$'\n'
@@ -8,4 +9,4 @@ for file in yml/*.yml; do
     dbContent="$dbContent$nl$newContent"
 done
 
-echo "$dbContent" | yaml-to-sqlite metadata.db metadata /dev/stdin --pk id
+echo "$dbContent" | yaml-to-sqlite $dbName metadata /dev/stdin --pk id
