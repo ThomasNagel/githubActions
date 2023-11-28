@@ -42,6 +42,9 @@ jobs:
           echo $GITHUB_WORKSPACE
           ls $GITHUB_WORKSPACE
 
+      - name: go to external repo
+        run: cd external/
+
       - name: pull    
         run: git pull
       
@@ -50,7 +53,7 @@ jobs:
 
       - name:
         run: |
-          git add metadata.db
+          git add ../metadata.db
           git commit -m 'DATABASE'
 
       - name: push
