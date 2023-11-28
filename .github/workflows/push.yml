@@ -28,7 +28,7 @@ jobs:
         run: pip3 install -r yaml-files/requirements.txt
 
       - name: create Database
-        run: bash createDB.sh yaml-files metadata.db
+        run: bash yaml-files/createDB.sh yaml-files metadata.db
 
       - name: config git settings
         run: |
