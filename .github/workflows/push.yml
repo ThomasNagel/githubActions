@@ -44,14 +44,18 @@ jobs:
 
       - name: go to external repo
         run: |
+          ls
           sudo mv metadata.db /external
           cd external/
+          ls
 
       - name: pull    
         run: git pull
       
       - name: test2
-        run: cat metadata.db
+        run: |
+          ls
+          cat metadata.db
 
       - name:
         run: |
