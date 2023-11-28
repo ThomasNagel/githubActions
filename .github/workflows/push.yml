@@ -21,6 +21,9 @@ jobs:
 
       - name: create Database
         run: bash createDB.sh
+      
+      - name: test
+        run: cat metadata.db
 
   push-to-remote:
     runs-on: ubuntu-latest
