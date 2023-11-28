@@ -1,0 +1,13 @@
+summary:
+  values: |
+    Cheese bad
+  objective: |
+    Destroy all cheese production facilities!!!!
+
+Resources:
+  Money:
+    Gold: 0
+    Euro: 3
+  Factories:
+    Milk: 0
+    Cheese: 0

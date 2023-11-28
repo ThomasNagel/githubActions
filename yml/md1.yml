@@ -1,0 +1,13 @@
+summary:
+  values: |
+    Cheese is pretty good.
+  objective: |
+    Aquire all cheese.
+
+Resources:
+  Money:
+    Gold: 5000
+    Euro: 10
+  Factories:
+    Milk: 3
+    Cheese: 2
