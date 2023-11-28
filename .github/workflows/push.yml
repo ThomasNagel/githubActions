@@ -8,8 +8,16 @@ jobs:
   build-db-and-push:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout receiver repo
+        uses: actions/checkout@v4
+        with:
+          repository: ThomasNagel/PushReceiver
+          token: ${{ secrets.PUSHRECEIVER_TOKEN }}
+
       - name: Checkout this repo
         uses: actions/checkout@v4
+        with:
+          path: yaml-files
       
       - name: Setup python
         uses: actions/setup-python@v4
@@ -20,31 +28,12 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: create Database
-        run: bash createDB.sh metadata.db
-      
-      - name: test1
-        run: cat metadata.db
-
-      - name: Checkout receiver repo
-        uses: actions/checkout@v4
-        with:
-          repository: ThomasNagel/PushReceiver
-          token: ${{ secrets.PUSHRECEIVER_TOKEN }}
-          path: external
+        run: bash createDB.sh yaml-files metadata.db
 
       - name: config git settings
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
-      
-      - name: go to external repo
-        run: |
-          mv metadata.db ./external
-          cd external/
-          ls
-
-      - name: pull    
-        run: git pull
       
       - name: test2
         run: |
