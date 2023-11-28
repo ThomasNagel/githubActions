@@ -21,6 +21,9 @@ jobs:
 
       - name: create Database
         run: bash createDB.sh metadata.db
+      
+      - name: test1
+        run: cat metadata.db
 
       - name: Checkout receiver repo
         uses: actions/checkout@v4
@@ -35,6 +38,9 @@ jobs:
 
       - name: pull    
         run: git pull
+      
+      - name: test2
+        run: cat metadata.db
 
       - name:
         run: |
