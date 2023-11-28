@@ -44,7 +44,7 @@ jobs:
 
       - name: go to external repo
         run: |
-          mv metadata.db /external
+          sudo mv metadata.db /external
           cd external/
 
       - name: pull    
