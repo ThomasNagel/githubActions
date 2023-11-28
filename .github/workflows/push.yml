@@ -30,6 +30,7 @@ jobs:
         with:
           repository: ThomasNagel/PushReceiver
           token: ${{ secrets.PUSHRECEIVER_TOKEN }}
+          path: external
 
       - name: config git settings
         run: |
