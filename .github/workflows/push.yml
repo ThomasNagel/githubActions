@@ -37,15 +37,9 @@ jobs:
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
       
-      - name: test repo
-        run: |
-          echo $GITHUB_WORKSPACE
-          ls $GITHUB_WORKSPACE
-
       - name: go to external repo
         run: |
-          ls
-          sudo mv metadata.db /external
+          mv metadata.db ./external
           cd external/
           ls
 
