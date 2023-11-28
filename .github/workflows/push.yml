@@ -34,6 +34,11 @@ jobs:
         run: |
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
+      
+      - name: test2
+        run: |
+          ls
+          cat metadata.db
 
       - name:
         run: |
