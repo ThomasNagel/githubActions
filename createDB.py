@@ -2,6 +2,7 @@ import json
 import yaml
 import sqlite_utils
 import os
+import sys
 
 # Recursively iterate over all values in data that we want.
 # We return a flattened list of this data with new keys 
@@ -50,14 +51,16 @@ def transformData(yamlData:list[tuple], requiredFields:dict) -> list[dict]:
 
 
 def main():
+    pathToBaseDir = sys.argv[1]
     # Get settings from config file
-    with open("config.json", "r") as f:
+    with open(os.path.join(pathToBaseDir, "config.json"), "r") as f:
         config = json.load(f)
 
     # Get all yaml data
     yamlData = []
-    for filename in os.listdir(config["yamlPath"]):
-        fp = os.path.join(config["yamlPath"], filename)
+    ymlDir = os.path.join(pathToBaseDir, config["yamlPath"])
+    for filename in os.listdir(ymlDir):
+        fp = os.path.join(ymlDir, filename)
         
         with open(fp, "r") as f:
             for data in yaml.safe_load_all(f):

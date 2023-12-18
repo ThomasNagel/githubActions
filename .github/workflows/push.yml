@@ -24,11 +24,11 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install yalm-to-sqlite dependency
+      - name: Install dependencies for python script
         run: pip3 install -r yaml-files/requirements.txt
 
       - name: create Database
-        run: bash yaml-files/createDB.sh yaml-files metadata.db
+        run: python3 yaml-files/createDB.py yaml-files/
 
       - name: config git settings
         run: |
