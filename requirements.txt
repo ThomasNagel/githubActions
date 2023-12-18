@@ -1,1 +1,2 @@
-yaml-to-sqlite==1.0
+sqlite-utils>=3.36
+pyyaml>=6.0
