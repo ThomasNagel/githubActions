@@ -20,7 +20,7 @@ jobs:
           path: yaml-files
       
       - name: Check if PR does not change files owned by other clients
-        run: yaml-files/checkPr.sh
+        run: yaml-files/checkPr.sh ${{github.event.pull_request.user.login}}
 
       - name: Setup python
         uses: actions/setup-python@v4
