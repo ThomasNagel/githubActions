@@ -2,6 +2,8 @@ name: Push test
 run-name: ${{ github.actor }} is testing out the push test
 on:
   push:
+    branches:
+      yaml
     paths:
       - '**.yml'
 jobs:
@@ -19,6 +21,9 @@ jobs:
         with:
           path: yaml-files
       
+      - name: Check if PR does not change files owned by other clients
+        run: yaml-files/checkPr.sh
+
       - name: Setup python
         uses: actions/setup-python@v4
         with:
