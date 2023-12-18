@@ -68,7 +68,7 @@ def main():
 
     dictData = transformData(yamlData, config["requiredFields"])
 
-    db = sqlite_utils.Database(config["dbName"])
+    db = sqlite_utils.Database(config["dbName"], recreate=True)
     db[config["tableName"]].upsert_all(dictData, pk=config["pk"], alter=True)
 
 
