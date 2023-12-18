@@ -1,7 +1,0 @@
-{
-    "summary": ["values"],
-    "Resources": {
-        "Money": ["Gold", "Euro"],
-        "Factories": ["Milk"]
-    }
-}

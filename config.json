@@ -1,0 +1,13 @@
+{   
+    "yamlPath": "yml",
+    "pk": "id",
+    "dbName": "metadata.db",
+    "tableName": "metadata",
+    "requiredFields": {
+        "summary": ["values"],
+        "Resources": {
+            "Money": ["Gold", "Euro"],
+            "Factories": ["Milk"]
+        }
+    }
+}
