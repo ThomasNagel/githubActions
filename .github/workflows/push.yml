@@ -2,8 +2,7 @@ name: Push test
 run-name: ${{ github.actor }} is testing out the push test
 on:
   push:
-    paths:
-      - '**.yml'
+
 jobs:
   check-push:
     runs-on: ubuntu-latest
@@ -12,9 +11,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Echo test
-        run: echo ${{ github.repository_owner }} ${{ github.actor }}
+        run: echo ${{ github.repository_owner_id }} ${{ github.actor_id }}
+      
+      - name: Github repo owner check
+        if: ${{ github.repository_owner_id }} != ${{ github.actor_id }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+              core.setFailed('Actor is not an owner')
 
   test:
+    needs: check-push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
