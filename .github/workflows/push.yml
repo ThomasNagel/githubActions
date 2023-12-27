@@ -5,6 +5,15 @@ on:
     paths:
       - '**.yml'
 jobs:
+  check-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      - name: Echo test
+        run: echo "test"
+
   test:
     runs-on: ubuntu-latest
     steps:
