@@ -1,3 +1,7 @@
 setup branch protection rules for main
 setup workflow rules
 setup acces toke to seccond repo
+
+TODO:
+make sure no actions are run in branches that are not main
+private vulnerabilit reporting

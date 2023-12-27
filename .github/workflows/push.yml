@@ -40,7 +40,7 @@ jobs:
           git config --global user.name 'push repo'
           git config --global user.email 'not@important.com'
 
-      - name:
+      - name: commit database
         run: |
           git add metadata.db
           git commit -m 'DATABASE'
