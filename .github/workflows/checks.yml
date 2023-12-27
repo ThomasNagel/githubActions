@@ -2,7 +2,7 @@ name: PR checks
 run-name: ${{ github.actor }} wants to add yaml data
 on: pull_request
 jobs:
-  PR-security-checks:
+  Security-checks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
