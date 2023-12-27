@@ -5,6 +5,9 @@ jobs:
   PR-security-checks:
     runs-on: ubuntu-latest
     steps:
+      - name: test
+        run: echo "test"
+        
       - name: Checkout this repo
         uses: actions/checkout@v4
 
