@@ -16,11 +16,10 @@ jobs:
           echo ${{ github.repository_owner_id }} ${{ github.actor_id }}
       
       - name: Github repo owner check
-        if: ${{ github.repository_owner_id }} != ${{ github.actor_id }}
+        if: ${{ github.repository_owner_id != github.actor_id }}
         uses: actions/github-script@v3
         with:
           script: |
-              echo ${{ github.repository_owner_id }} ${{ github.actor_id }}
               core.setFailed('Actor is not an owner')
 
   test:
