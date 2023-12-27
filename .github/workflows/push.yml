@@ -5,43 +5,8 @@ on:
     paths:
       - '**.yml'
 jobs:
-  build-db-and-push:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout receiver repo
-        uses: actions/checkout@v4
-        with:
-          repository: ThomasNagel/PushReceiver
-          token: ${{ secrets.PUSHRECEIVER_TOKEN }}
-
       - name: Checkout this repo
         uses: actions/checkout@v4
-        with:
-          path: yaml-files
-      
-      - name: Check if PR does not change files owned by other clients
-        run: yaml-files/checkPr.sh ${{github.event.push.user.login}}
-
-      - name: Setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies for python script
-        run: pip3 install -r yaml-files/requirements.txt
-
-      - name: create Database
-        run: python3 yaml-files/createDB.py yaml-files/
-
-      - name: config git settings
-        run: |
-          git config --global user.name 'push repo'
-          git config --global user.email 'not@important.com'
-
-      - name:
-        run: |
-          git add metadata.db
-          git commit -m 'DATABASE'
-
-      - name: push
-        run: git push origin main

@@ -1,0 +1,12 @@
+name: pr test
+run-name: ${{ github.actor }} is testing out the pr test
+on:
+  pull_request:
+    paths:
+      - '**.yml'
+jobs:
+  pr-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo test
+        run: echo "test"
