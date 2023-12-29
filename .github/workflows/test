@@ -1,0 +1,9 @@
+name: Push test
+run-name: ${{ github.actor }} is testing out the push test
+on: pull_request
+jobs:
+  build-db-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "test"
